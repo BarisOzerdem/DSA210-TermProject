@@ -1,55 +1,84 @@
 # Data Sources
 
-## Scope for April 14
-For the April 14 milestone, the project will first focus on the Syrian Civil War panel.
+## Current April 14 Scope
 
-Origin country:
-- Syria
+This milestone focuses on the Syrian Civil War panel.
 
-Host countries:
-- Turkey
-- Lebanon
-- Jordan
+- Origin country: Syria (`SYR`)
+- Host countries: Turkey (`TUR`), Lebanon (`LBN`), Jordan (`JOR`)
+- Time window: 2010–2024
+- Expected sample size: 45 host-year observations
 
-Time range:
-- 2010–2024
+## 1. Conflict Intensity
 
-## Main Data Sources
+Source: UCDP Battle-Related Deaths Dataset (conflict-year format)
 
-### 1. Conflict Intensity
-Source: UCDP Battle-Related Deaths Dataset  
-Purpose: annual battle-related deaths for the Syrian conflict
+Direct link:
+- https://ucdp.uu.se/downloads/brd/ucdp-brd-conf-251-csv.zip
 
 Main variable:
 - `bd_best`
 
-### 2. Refugee Data
-Source: UNHCR Refugee Data Finder API  
-Purpose: yearly Syrian refugee stock in host countries
+Constructed variable in the project:
+- `conflict_bd_best_syria`
 
-Main variable:
+## 2. Refugee Exposure
+
+Source: UNHCR Refugee Statistics API, population endpoint
+
+Base endpoint:
+- https://api.unhcr.org/population/v1/population/
+
+Main parameters used:
+- `yearFrom=2010`
+- `yearTo=2024`
+- `coo=SYR`
+- `coa=TUR,LBN,JOR`
+- `cf_type=ISO`
+- `download=true`
+
+Main raw variables used:
+- `Refugees under UNHCR's mandate`
+- `Asylum-seekers`
+
+Constructed variables:
 - `refugee_stock`
+- `asylum_seekers`
+- `refugees_per_1000`
+- `log_refugee_stock`
 
-Host countries for this stage:
-- Turkey
-- Lebanon
-- Jordan
+## 3. Macroeconomic Indicators
 
-### 3. Macroeconomic Indicators
-Source: World Bank World Development Indicators
+Source: World Bank World Development Indicators API (v2)
 
-Main variables:
-- GDP growth
-- Inflation
-- Unemployment
-- Trade openness
-- Current account balance
+Base endpoint:
+- https://api.worldbank.org/v2
 
-## Planned Sample Structure
-The planned time range is 2010–2024, giving 15 yearly observations per host country.
+Indicators used:
+- GDP growth: `NY.GDP.MKTP.KD.ZG`
+- Inflation: `FP.CPI.TOTL.ZG`
+- Unemployment: `SL.UEM.TOTL.ZS`
+- Trade (% of GDP): `NE.TRD.GNFS.ZS`
+- Current account balance (% of GDP): `BN.CAB.XOKA.GD.ZS`
+- Population: `SP.POP.TOTL`
 
-For the Syria panel:
-- 3 host countries × 15 years = 45 host country-year observations
+Host countries:
+- Turkey (`TUR`)
+- Lebanon (`LBN`)
+- Jordan (`JOR`)
 
-## Notes
-This is the first stage of the broader project, which later aims to include the Russia–Ukraine War and the Afghanistan conflict.
+Years:
+- 2010–2024
+
+## Merging Logic
+
+The final processed panel uses these join keys:
+
+- conflict data: `origin_iso + year`
+- refugee data: `origin_iso + host_iso + year`
+- macro data: `host_iso + year`
+
+## Final Output
+
+Processed dataset:
+- `data/processed/syria_panel_2010_2024.csv`

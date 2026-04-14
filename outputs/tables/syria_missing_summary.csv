@@ -1,0 +1,17 @@
+variable,missing_count,missing_rate
+origin_name,0,0.0
+origin_iso,0,0.0
+host_name,0,0.0
+host_iso,0,0.0
+year,0,0.0
+conflict_bd_best_syria,0,0.0
+refugee_stock,0,0.0
+asylum_seekers,0,0.0
+host_population,0,0.0
+refugees_per_1000,0,0.0
+log_refugee_stock,0,0.0
+gdp_growth,1,0.022222222222222223
+inflation,0,0.0
+unemployment,1,0.022222222222222223
+trade_pct_gdp,1,0.022222222222222223
+current_account_pct_gdp,1,0.022222222222222223
