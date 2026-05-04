@@ -3,6 +3,7 @@ numpy
 requests
 matplotlib
 scipy
+scikit-learn
 openpyxl
 jupyter
 ipykernel
