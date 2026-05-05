@@ -1,5 +1,5 @@
 test,x,y,n,statistic,p_value,note
-spearman,refugees_per_1000,inflation,45,-0.234519,0.120986,
-spearman,refugees_per_1000,gdp_growth,44,-0.620014,7e-06,
-mannwhitney,refugees_per_1000,inflation,45,358.0,0.017656,median split at 56.7426
-mannwhitney,refugees_per_1000,gdp_growth,44,403.0,0.000165,median split at 54.8354
+spearman,refugees_per_1000,inflation,135,0.05888693785972101,0.4974984073573867,
+spearman,refugees_per_1000,gdp_growth,134,-0.1770121821967855,0.04075108576151827,
+mannwhitney,refugees_per_1000,inflation,135,2114.0,0.47181630018741727,median split at 5.9674
+mannwhitney,refugees_per_1000,gdp_growth,134,2558.0,0.1636758980929045,median split at 5.9388

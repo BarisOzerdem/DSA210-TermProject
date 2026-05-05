@@ -11,6 +11,8 @@ I used ChatGPT as an assistant during this project.
 - structuring exploratory data analysis
 - formatting hypothesis test outputs
 - improving reproducibility instructions in the repository
+- helping plan the machine learning workflow
+- improving explanations of model results
 
 ## Important note
 
